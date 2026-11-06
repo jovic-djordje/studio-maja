@@ -1,8 +1,10 @@
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink, useLocation } from "react-router-dom";
 
 const Navigation = () => {
+  const location = useLocation();
+  const isHome = location.pathname === "/";
   return (
-    <header>
+    <header className={`site-header ${isHome ? "is-center" : "is-top"}`}>
       <div className="header-holder">
         <Link to="/" className="header-name">
           <span>maja topčagić</span>

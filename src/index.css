@@ -10,3 +10,15 @@
   padding: 0;
   box-sizing: border-box;
 }
+
+/* Sakrij scrollbar, ali zadrži skrolovanje */
+html,
+body {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+html::-webkit-scrollbar,
+body::-webkit-scrollbar {
+  display: none;
+}

@@ -1,8 +1,12 @@
 import "../pages/home.style.css";
+import { useLocation } from "react-router-dom";
 
 const Footer = () => {
+  const location = useLocation();
+  const isHome = location.pathname === "/";
+
   return (
-    <footer className="global-footer">
+    <footer className={`global-footer ${isHome ? "is-fixed" : "is-relative"}`}>
       <div className="footer-holder">
         {/* Kolone 1 do 3 */}
         <span className="footer-copy">©2026</span>

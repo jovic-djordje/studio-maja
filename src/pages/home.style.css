@@ -20,6 +20,18 @@
   top: 0;
   transform: translateY(0);
   padding-top: 1rem; /* Razmak od gornje ivice ekrana */
+
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+  background-color: transparent;
+  padding-bottom: 1rem;
+}
+
+.site-header.is-top.is-scrolled {
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+
+  background-color: rgba(8, 8, 8, 0.25);
 }
 
 .header-holder {
@@ -71,6 +83,11 @@
   font-size: 12px;
   letter-spacing: 0.05em;
   transition: color 0.2s ease;
+}
+
+.nav-header a:hover,
+.cta-link:hover {
+  color: #999999;
 }
 
 .cta-link {

@@ -62,6 +62,7 @@ const Home = () => {
             muted
             playsInline
             preload="auto"
+            disablePictureInPicture
             className="reel-video"
           >
             <source src="/videos/video-hero.mp4" type="video/mp4" />

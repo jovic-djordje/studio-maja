@@ -1,0 +1,230 @@
+.filter {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 6px;
+  border-bottom: 1px solid rgba(153, 153, 153, 0.1);
+  padding-bottom: 40px;
+}
+
+.work-label-holder {
+  border: 1px solid rgba(153, 153, 153, 0.16);
+  border-radius: 4px;
+  padding: 4px 8px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 12px;
+  font-family: inherit;
+  font-weight: 400;
+  background: transparent;
+  color: inherit;
+}
+
+.work-label-holder:hover {
+  border: 1px solid #fafafa;
+}
+
+.active-label {
+  color: #080808;
+  background-color: #fafafa;
+  border: 1px solid #fafafa;
+}
+
+.work-category {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  border-bottom: 1px solid rgb(153, 153, 153, 10%);
+  padding: 40px 0px;
+}
+
+.work-category-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.work-toggle {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: transparent;
+  border: none;
+}
+
+.work-toggle-icon {
+  color: #fafafa;
+  height: 16px;
+  width: 16px;
+}
+
+.work-title-holder {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 2px;
+}
+
+.work-title-holder h2 {
+  color: inherit;
+  font-size: 12px;
+  font-weight: inherit;
+  font-weight: inherit;
+}
+
+.work-title-holder p {
+  color: #999999;
+  font-size: 12px;
+  font-weight: inherit;
+}
+
+.work-gallery {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+}
+
+.work-gallery img {
+  max-width: 115px;
+  width: 100%;
+  border-radius: 4px;
+  aspect-ratio: 2 / 3;
+  object-fit: cover;
+}
+
+.work-gallery video {
+  width: 100%;
+  border-radius: 4px;
+  aspect-ratio: 4 / 2;
+  object-fit: cover;
+}
+
+.video-btn {
+  background: transparent;
+  border: none;
+}
+
+.work-gallery .video-btn:nth-child(1) {
+  grid-column: 1 / 3;
+}
+
+.work-gallery .video-btn:nth-child(2) {
+  grid-column: 3 / 5;
+}
+
+.work-gallery .video-btn:nth-child(3) {
+  grid-column: 5 / 7;
+}
+
+/* MODAL AND IMAGE BUTTON DESIGN */
+
+.modal {
+  position: fixed;
+  inset: 0;
+  z-index: 2000;
+
+  display: grid;
+  grid-template-rows: auto minmax(0, 1fr);
+  gap: 16px;
+
+  padding: 16px 16px 32px;
+  background-color: var(--site-background);
+  color: #fafafa;
+
+  isolation: isolate;
+}
+
+/* Ista tekstura kao na pozadini sajta */
+.modal::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+
+  background-image: url("/images/noise.svg");
+  background-repeat: repeat;
+  background-size: 200px 200px;
+
+  opacity: 0.07;
+  pointer-events: none;
+}
+
+/* Naslov lijevo, zatvaranje desno */
+.modal-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding-bottom: 1rem;
+}
+
+.modal-heading-text {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+}
+
+.modal-heading-text span {
+  color: #999999;
+  font-size: 14px;
+  font-family: inherit;
+  font-weight: inherit;
+}
+
+.modal-heading p {
+  margin: 0;
+  font-size: 14px;
+  font-weight: 400;
+  font-family: inherit;
+  color: inherit;
+}
+
+.modal-icon {
+  font-size: 24px;
+  align-self: flex-start;
+}
+
+/* Velika fotografija, bez rezanja kadra */
+.modal > img {
+  display: block;
+  align-self: stretch;
+
+  place-self: center;
+
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  max-height: 100%;
+
+  aspect-ratio: auto;
+  object-fit: contain;
+  object-position: center;
+  border-radius: 0;
+}
+
+.modal > video {
+  display: block;
+  align-self: stretch;
+
+  place-self: center;
+
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  max-height: 100%;
+
+  aspect-ratio: auto;
+  object-fit: contain;
+  object-position: center;
+  border-radius: 0;
+}
+
+.img-btn {
+  border: none;
+  background: transparent;
+}

@@ -1,14 +1,38 @@
 :root {
-  font-family: "IBM Plex Sans";
-  font-weight: 500;
-  color: #262626;
-  background-color: #f9f9f7;
+  --site-background: #080808;
+
+  font-family: "IBM Plex Sans", sans-serif;
+  font-weight: 400;
+  color: #fafafa;
+  background-color: var(--site-background);
 }
 
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+}
+
+body {
+  min-height: 100vh;
+  position: relative;
+  isolation: isolate;
+  background-color: var(--site-background);
+}
+
+/* Zrnasta tekstura iza sadržaja */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+
+  background-image: url("/images/noise.svg");
+  background-repeat: repeat;
+  background-size: 200px 200px;
+
+  opacity: 0.07;
+  pointer-events: none;
 }
 
 /* Sakrij scrollbar, ali zadrži skrolovanje */
@@ -21,4 +45,32 @@ body {
 html::-webkit-scrollbar,
 body::-webkit-scrollbar {
   display: none;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  /* Mala tačka */
+  html,
+  body {
+    cursor:
+      url("/images/cursor-dot.svg") 12 12,
+      auto;
+  }
+
+  /* Veća tačka preko klikabilnih elemenata */
+  a,
+  button,
+  [role="button"],
+  input[type="button"],
+  input[type="submit"],
+  .cursor-hover {
+    cursor:
+      url("/images/cursor-dot-hover.svg") 12 12,
+      pointer;
+  }
+}
+
+/* Dok je modal otvoren, pozadina se ne skroluje */
+html:has(.modal),
+body:has(.modal) {
+  overflow: hidden;
 }

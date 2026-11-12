@@ -13,11 +13,19 @@
   box-sizing: border-box;
 }
 
+/* 1. OSNOVA DOKUMENTA - DOZVOLJAVA NORMALNO VERTIKALNO SKROLOVANJE */
+html {
+  overflow-x: hidden;
+}
+
 body {
+  width: 100%;
   min-height: 100vh;
+  min-height: 100dvh;
   position: relative;
   isolation: isolate;
   background-color: var(--site-background);
+  overflow-x: hidden;
 }
 
 /* Zrnasta tekstura iza sadržaja */

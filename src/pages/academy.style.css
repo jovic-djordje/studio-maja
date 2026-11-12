@@ -16,7 +16,7 @@
   align-items: flex-start;
   gap: 12px;
   width: 100%;
-  margin-top: 200px;
+  margin-top: 180px;
 }
 
 .academy-structure > .academy-detail-group {
@@ -47,4 +47,37 @@
 .academy-cta:hover .academy-cta-icon,
 .academy-cta:focus-visible .academy-cta-icon {
   opacity: 1;
+}
+
+/* MEDIA QUERIES */
+
+@media screen and (max-width: 1300px) {
+  .academy-structure {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 32px 12px; /* 32px razmak između gornjeg i donjeg reda, 12px horizontalno */
+    margin-top: 100px; /* opciono: malo manji gornji razmak na manjem ekranu */
+  }
+
+  .academy-structure > .academy-detail-group {
+    flex: initial; /* poništava flex pravilo sa desktopa */
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 700px) {
+  .academy-structure {
+    grid-template-columns: 1fr;
+    gap: 32px; /* ujednačen vertikalni razmak između svih grupa */
+  }
+
+  .academy-structure {
+    margin-top: 32px;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .academy-title {
+    font-size: 16px;
+  }
 }

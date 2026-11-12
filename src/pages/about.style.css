@@ -60,3 +60,20 @@
   max-width: 220px;
   width: 100%;
 }
+
+/*MEDIA QUERIES*/
+@media screen and (max-width: 1000px) {
+  .about-page {
+    padding: 3rem 1rem 2rem 1rem;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .about-text {
+    font-size: 16px;
+  }
+
+  .about-page {
+    padding: 4.75rem 1rem 2rem 1rem;
+  }
+}

@@ -53,7 +53,7 @@ const WorkCategory = ({ category }) => {
         >
           <span aria-hidden="true">
             {isOpen ? (
-              <HiArrowTurnDownLeft className="work-toggle-icon" />
+              <HiArrowTurnDownLeft className="work-toggle-icon " />
             ) : (
               <HiArrowTurnRightDown className="work-toggle-icon" />
             )}
@@ -120,6 +120,9 @@ const WorkCategory = ({ category }) => {
                   key={item.id}
                   src={item.src}
                   aria-label={item.alt}
+                  autoPlay
+                  muted
+                  loop
                   playsInline
                   preload="metadata"
                   disablePictureInPicture

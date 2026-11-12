@@ -7,12 +7,12 @@ const About = () => {
         <div className="about-page-text-holder">
           <h1 className="about-text">
             Hi, I’m Maja Topčagić, a portrait, art, and fashion photographer
-            based in Sarajevo. With over a decade of <br />
-            visual storytelling, I create expressive portraits and editorial
-            series focused on natural light, authentic character, and raw
-            emotion. Alongside commissioned campaigns and studio sessions, I run
-            creative workshops and educational programs to help photographers
-            refine their visual voice.
+            based in Sarajevo. With over a decade of visual storytelling, I
+            create expressive portraits and editorial series focused on natural
+            light, authentic character, and raw emotion. Alongside commissioned
+            campaigns and studio sessions, I run creative workshops and
+            educational programs to help photographers refine their visual
+            voice.
           </h1>
 
           <div className="detail-group">

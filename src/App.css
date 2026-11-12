@@ -1,0 +1,13 @@
+.app-layout {
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+}
+
+.app-content {
+  flex-grow: 1;
+}
+
+.global-footer.is-relative {
+  flex-shrink: 0;
+}

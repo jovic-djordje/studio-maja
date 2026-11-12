@@ -43,6 +43,14 @@ const Navigation = () => {
           {" "}
           GET IN TOUCH
         </Link>
+
+        <button
+          type="button"
+          className="menu-trigger cursor-hover"
+          aria-label="Toggle navigation menu"
+        >
+          MENU
+        </button>
       </div>
     </header>
   );

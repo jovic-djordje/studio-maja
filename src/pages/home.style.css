@@ -101,14 +101,29 @@
   font-size: 12px;
 }
 
+.menu-trigger {
+  background: transparent;
+  border: none;
+  color: inherit;
+  font-size: 10px;
+  font-family: inherit;
+  justify-self: end;
+  display: none;
+  font-weight: inherit;
+  cursor:
+    url("/images/cursor-dot-hover.svg") 12 12,
+    auto;
+}
+
 /*HOMEPAGE*/
 .home-page {
   position: relative;
   width: 100vw;
-  min-height: 100vh;
+  height: 100dvh;
   box-sizing: border-box;
   overflow: hidden;
   padding-top: 1rem;
+  touch-action: none;
 }
 
 .home-page-holder {
@@ -243,4 +258,128 @@
   grid-column: 12 / 13;
   justify-self: end;
   white-space: nowrap;
+}
+
+/* MEDIA QUERIES */
+@media screen and (max-width: 1300px) {
+  .header-name,
+  .header-label,
+  .nav-header a,
+  .cta-link,
+  .footer-holder,
+  .hero-statement,
+  .hero-time {
+    font-size: 10px;
+  }
+
+  .home-reel {
+    width: 330px;
+  }
+}
+
+@media screen and (max-width: 1200px) {
+  .header-holder {
+    grid-template-columns: repeat(8, 1fr);
+  }
+
+  .nav-header {
+    justify-content: flex-end;
+    gap: 10px;
+    grid-column: 7;
+  }
+
+  .cta-link {
+    grid-column: 8;
+  }
+}
+
+@media screen and (max-width: 1000px) {
+  .home-page {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100dvh;
+    overflow: hidden;
+    touch-action: none;
+  }
+
+  .site-header.is-center {
+    top: 0;
+    transform: translateY(0);
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+  }
+
+  .hero-top-grid {
+    grid-template-columns: 1fr;
+    row-gap: 8px;
+    margin-top: 2rem;
+  }
+
+  .hero-statement p {
+    font-size: 20px;
+    font-weight: 500;
+  }
+
+  .header-label,
+  .nav-header a,
+  .cta-link,
+  .hero-time {
+    display: none;
+  }
+
+  .menu-trigger {
+    display: block;
+  }
+
+  .home-reel {
+    top: 50%;
+    width: 440px;
+  }
+}
+
+@media screen and (max-width: 700px) {
+  .footer-holder {
+    grid-template-columns: 1fr;
+    row-gap: 12px;
+    align-items: start;
+    font-size: 12px;
+  }
+
+  .footer-copy,
+  .footer-socials,
+  .footer-contact,
+  .footer-credits {
+    grid-column: 1;
+  }
+
+  .footer-credits {
+    justify-self: start;
+  }
+
+  .header-name,
+  .menu-trigger,
+  .footer-holder {
+    font-size: 12px;
+  }
+
+  .home-reel {
+    top: 48%;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .hero-statement p {
+    font-size: 16px;
+  }
+
+  .hero-top-grid {
+    margin-top: 4rem;
+  }
+
+  .home-reel {
+    width: calc(100vw - 2rem); /* 100vw minus 1rem lijevo i 1rem desno */
+    max-width: 100%; /* poništava 85vw */
+  }
 }

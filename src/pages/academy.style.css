@@ -1,0 +1,50 @@
+.academy-page.about-page {
+  min-height: 0;
+}
+
+.academy-title {
+  max-width: 787px;
+  width: 100%;
+  line-height: 26.4px;
+  font-weight: 500;
+  color: inherit;
+  font-size: 20px;
+}
+
+.academy-structure {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  width: 100%;
+  margin-top: 200px;
+}
+
+.academy-structure > .academy-detail-group {
+  flex: 1 1 0;
+  min-width: 0;
+}
+
+.academy-cta {
+  color: inherit;
+  font-size: inherit;
+  font-weight: inherit;
+  text-decoration: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 4px;
+}
+
+.academy-cta:hover {
+  color: #999999;
+}
+
+.academy-cta-icon {
+  opacity: 0;
+  transition: opacity 200ms ease;
+}
+
+.academy-cta:hover .academy-cta-icon,
+.academy-cta:focus-visible .academy-cta-icon {
+  opacity: 1;
+}

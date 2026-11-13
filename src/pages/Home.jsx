@@ -1,39 +1,44 @@
 import "./home.style.css";
-import { useState, useEffect } from "react";
+import SarajevoClock from "../components/SarajevoClock";
+import { useRef, useEffect } from "react";
 
 const Home = () => {
-  const [timeData, setTimeData] = useState({ time: "", timeZoneName: "" });
+  const videoRef = useRef(null);
 
   useEffect(() => {
-    const updateTime = () => {
-      const now = new Date();
+    const video = videoRef.current;
+    if (!video) return;
 
-      // Formatira vrijeme u tačnoj vremenskoj zoni Sarajeva sa sekundama i oznakom zone (CET / CEST)
-      const formatter = new Intl.DateTimeFormat("en-GB", {
-        timeZone: "Europe/Sarajevo",
-        hour: "2-digit",
-        minute: "2-digit",
-        second: "2-digit",
-        timeZoneName: "short",
-        hour12: false,
-      });
+    // Prisilno setovanje svojstva na DOM nivou za iOS WebKit
+    video.defaultMuted = true;
+    video.muted = true;
 
-      const parts = formatter.formatToParts(now);
-      const hours = parts.find((p) => p.type === "hour")?.value || "";
-      const minutes = parts.find((p) => p.type === "minute")?.value || "";
-      const seconds = parts.find((p) => p.type === "second")?.value || "";
-      const tz = parts.find((p) => p.type === "timeZoneName")?.value || "CET";
-
-      setTimeData({
-        time: `${hours}:${minutes}:${seconds}`,
-        timeZoneName: tz,
-      });
+    const handlePlay = () => {
+      const playPromise = video.play();
+      if (playPromise !== undefined) {
+        playPromise.catch(() => {
+          // Ako iOS privremeno blokira, pokreće se na prvi dodir ekrana
+          const handleFirstTouch = () => {
+            video.play();
+            window.removeEventListener("touchstart", handleFirstTouch);
+          };
+          window.addEventListener("touchstart", handleFirstTouch, {
+            once: true,
+          });
+        });
+      }
     };
 
-    updateTime();
-    const interval = setInterval(updateTime, 1000);
+    // Pokreće video čim dobije dovoljno podataka
+    if (video.readyState >= 2) {
+      handlePlay();
+    } else {
+      video.addEventListener("loadeddata", handlePlay, { once: true });
+    }
 
-    return () => clearInterval(interval);
+    return () => {
+      video.removeEventListener("loadeddata", handlePlay);
+    };
   }, []);
   return (
     <main className="home-page">
@@ -47,11 +52,7 @@ const Home = () => {
             </p>
           </div>
 
-          <div className="hero-time">
-            <span className="hero-time-digits">{timeData.time}</span>
-            <span className="hero-time-zone">{timeData.timeZoneName}</span>
-            <span className="hero-time-city">Sarajevo, BA</span>
-          </div>
+          <SarajevoClock className="hero-time" />
         </div>
 
         {/* Centralni video */}
@@ -64,9 +65,8 @@ const Home = () => {
             preload="auto"
             disablePictureInPicture
             className="reel-video"
-          >
-            <source src="/videos/video-hero.mp4" type="video/mp4" />
-          </video>
+            src="/videos/video-hero.mp4"
+          ></video>
         </div>
       </div>
     </main>

@@ -1,0 +1,94 @@
+.pixel-overlay {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100dvh;
+  z-index: 99999;
+  pointer-events: none;
+  overflow: hidden;
+  background-color: transparent;
+}
+
+.pixel-overlay::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 15; /* Iznad piksela (10), a ispod brojača (20) */
+  background-image: url("/images/noise.svg");
+  background-repeat: repeat;
+  background-size: 200px 200px;
+  opacity: 0.08; /* Ista jačina šuma kao u modalu i meniju */
+  pointer-events: none;
+}
+
+/* Tekst i brojač unutar preloadera */
+.loader-content {
+  position: absolute;
+  inset: 0;
+  z-index: 20; /* Iznad crnih blokova dok traje brojanje */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 1rem;
+  color: #fafafa;
+  pointer-events: none;
+}
+
+.loader-top-brand {
+  align-self: center;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  font-family: inherit;
+}
+
+.loader-bottom-counter {
+  font-size: clamp(4.5rem, 15vw, 11rem);
+  font-weight: 500;
+  line-height: 0.85;
+  letter-spacing: -0.04em;
+  font-variant-numeric: tabular-nums;
+  font-family: inherit;
+}
+
+/* Linija po sredini ekrana */
+.loader-line-track {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  height: 1px;
+  transform: translateY(-50%);
+  pointer-events: none;
+  background-color: transparent;
+  overflow: hidden;
+}
+
+.loader-line-fill {
+  width: 100%;
+  height: 100%;
+  background-color: #fafafa;
+  transform-origin: left center;
+  will-change: transform;
+}
+
+/* 12 kolona x 8 redova za proporcionalnije kvadrate */
+.pixel-grid {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  grid-template-rows: repeat(8, 1fr);
+  z-index: 10;
+}
+
+.pixel-block {
+  width: 100%;
+  height: 100%;
+  background-color: #080808; /* Čista crna kao u videu */
+}

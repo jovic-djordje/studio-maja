@@ -6,24 +6,27 @@ import Footer from "./components/Footer";
 import Work from "./pages/Work";
 import About from "./pages/About";
 import Academy from "./pages/Academy";
+import PixelTransition from "./components/PixelTransition";
 
 function App() {
   return (
     <Router>
-      <div className="app-layout">
-        <Navigation />
+      <PixelTransition>
+        <div className="app-layout">
+          <Navigation />
 
-        <main className="app-content">
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/work" element={<Work />} />
-            <Route path="/about" element={<About />} />
-            <Route path="/academy" element={<Academy />} />
-          </Routes>
-        </main>
+          <main className="app-content">
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="/work" element={<Work />} />
+              <Route path="/about" element={<About />} />
+              <Route path="/academy" element={<Academy />} />
+            </Routes>
+          </main>
 
-        <Footer />
-      </div>
+          <Footer />
+        </div>
+      </PixelTransition>
     </Router>
   );
 }

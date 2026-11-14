@@ -66,6 +66,7 @@ const Home = () => {
             disablePictureInPicture
             className="reel-video"
             src="/videos/video-hero.mp4"
+            poster="/images/video-hero-poster.jpg"
           ></video>
         </div>
       </div>

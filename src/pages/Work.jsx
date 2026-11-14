@@ -111,23 +111,18 @@ const WorkCategory = ({ category }) => {
           {visiblePhotos.map((item) =>
             item.type === "video" ? (
               <button
+                type="button"
                 className="video-btn"
                 key={item.id}
                 onClick={() => setSelectedPhoto(item)}
               >
-                {" "}
-                <video
-                  key={item.id}
-                  src={item.src}
-                  aria-label={item.alt}
-                  autoPlay
-                  muted
-                  loop
-                  playsInline
-                  preload="metadata"
-                  disablePictureInPicture
+                <img
+                  src={item.poster}
+                  alt={item.alt}
+                  loading="lazy"
+                  decoding="async"
                   className="cursor-hover"
-                ></video>
+                />
               </button>
             ) : (
               <button

@@ -708,22 +708,23 @@ export const workProjects = [
     type: "video",
     category: "film",
     src: "/videos/film-01.mp4",
+    poster: "/images/film-01-poster.webp",
     alt: "Fraktal is an experimental dance video created by Maja Topcagic x Darja Badnjevic, to celebrate the beauty of Bosnia and Herzegovina.",
   },
-
   {
     id: "film-02",
     type: "video",
     category: "film",
     src: "/videos/film-02.mp4",
+    poster: "/images/film-02-poster.webp",
     alt: "Nomade",
   },
-
   {
     id: "film-03",
     type: "video",
     category: "film",
     src: "/videos/film-03.mp4",
+    poster: "/images/film-03-poster.webp",
     alt: "Fashion film for Plusminus Fashion",
   },
 

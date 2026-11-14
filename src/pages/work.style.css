@@ -120,7 +120,8 @@
   display: block;
 }
 
-.work-gallery video {
+.work-gallery .video-btn video,
+.work-gallery .video-btn img {
   width: 200px;
   height: auto;
   aspect-ratio: 16 / 9;
@@ -150,9 +151,11 @@
   aspect-ratio: 2 / 3;
 }
 
-.work-gallery.is-open video {
+.work-gallery.is-open .video-btn video,
+.work-gallery.is-open .video-btn img {
   width: 100%;
   max-width: 100%;
+  height: auto;
   aspect-ratio: 16 / 9;
 }
 

@@ -210,6 +210,12 @@
   z-index: 20;
 }
 
+.footer-contact a {
+  display: flex;
+  align-items: center;
+  min-height: 20px;
+}
+
 .global-footer.is-fixed {
   position: fixed;
   bottom: 0;
@@ -590,6 +596,10 @@
 
   .home-reel {
     top: 48%;
+  }
+
+  .footer-contact a {
+    min-height: 20px;
   }
 }
 
